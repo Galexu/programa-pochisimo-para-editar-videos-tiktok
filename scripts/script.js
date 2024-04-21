@@ -33,7 +33,7 @@ ruta.addEventListener('change', function () {
 archivo.addEventListener('change', (event) => {
     var file = event.target.files[0];
     var url = URL.createObjectURL(file);
-    var video = document.createElement('video');
+    window.video = document.createElement('video');
     video.setAttribute("id", "video");
 
     video.src = url;
@@ -43,9 +43,10 @@ archivo.addEventListener('change', (event) => {
 });
 
 function showLoader() {
+    video.pause();
     document.querySelector('.cargando-contenedor').style.display = 'block';
-    var audio = document.getElementById("audio");
-    audio.play();
+    // var audio = document.getElementById("audio");
+    // audio.play();
 }
 
 function obtenerResolucion() {
